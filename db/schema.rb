@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20151027161018) do
   create_table "cities", force: :cascade do |t|
     t.string   "name"
     t.string   "country"
-    t.string   "attractions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
