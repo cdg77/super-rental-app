@@ -5,7 +5,7 @@ class CreateRentals < ActiveRecord::Migration
       t.column :type, :string
       t.column :image, :string
       t.column :bedrooms, :integer
-
+      
       t.timestamps
     end
   end

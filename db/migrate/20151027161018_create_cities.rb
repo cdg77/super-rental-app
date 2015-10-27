@@ -4,8 +4,6 @@ class CreateCities < ActiveRecord::Migration
       t.column :name, :string
       t.column :country, :string
       t.column :attractions, :string
-      t.column :rental_id, :integer
-      t.column :neighbohood_id, :integer
 
       t.timestamps
     end
