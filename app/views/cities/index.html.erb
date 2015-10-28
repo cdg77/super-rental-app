@@ -1,7 +1,10 @@
-<h1>Cities</h1>
-
-<ul>
-  <% @cities.each do |city| %>
-    <li><%= city.name %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>Cities</h1>
+  <ul>
+    <div class="well-lg">
+      <% @cities.each do |city| %>
+        <li><%= link_to city.name, city_path(city) %></li>
+      <% end %>
+    </div>
+  </ul>
+</div>
