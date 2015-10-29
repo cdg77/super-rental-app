@@ -34,7 +34,7 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     if @city.update(city_params)
       flash[:notice] = 'City updated successfully!'
-      redirect_to citites_path
+      redirect_to cities_path
     else
       flash[:alert] = 'Oops... Something went wrong, city.name was not updated!'
       render :edit

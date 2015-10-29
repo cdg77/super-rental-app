@@ -1,7 +1,13 @@
-<h2>List of Available Rentals for <%= @city.name %></h2>
+<div class="jumbotron">
+  <h2>List of Available Rentals for: </h2>
+  <h4><%= @city.name %>, <%= @city.state %> | <%= @city.country %></h4>
+</div>
+
+
 
 <p>
   list of available rentals coming soon...
 </p>
-
+ <br>
 <p><%= link_to "Return to list of cities", cities_path %></p>
+<p><%= link_to "Edit", edit_city_path(@city) %></p>
