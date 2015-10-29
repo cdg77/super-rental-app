@@ -17,9 +17,27 @@ class CitiesController < ApplicationController
   def create
     @city = City.new(city_params)
     if @city.save
+      flash[:notice] = 'Success! State Added!'
       redirect_to  cities_path
     else
+      flash[:alert] = 'Oops... Something went wrong!'
       render :new
+    end
+  end
+
+  def edit
+    @city = City.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @city = City.find(params[:id])
+    if @city.update(city_params)
+      flash[:notice] = 'City updated successfully!'
+      redirect_to citites_path
+    else
+      flash[:alert] = 'Oops... Something went wrong, city.name was not updated!'
+      render :edit
     end
   end
 
