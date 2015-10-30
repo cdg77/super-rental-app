@@ -10,7 +10,9 @@
 </p>
  <br>
 
- <p><%= link_to "List a Rental", new_city_rental_path %></p>
 
 <p><%= link_to "Return to list of cities", cities_path %></p>
 <p><%= link_to "Edit", edit_city_path(@city) %></p>
+<p><%= link_to "Delete", city_path(@city),
+                        :data => {:confirm => "You sure you want to delete this?",
+                                  :method => "delete"} %></p>

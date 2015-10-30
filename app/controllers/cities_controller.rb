@@ -6,7 +6,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
-    @rental = @city.rentals.new
+    # @rental = @city.rentals.new
     render :show
   end
 
@@ -41,6 +41,14 @@ class CitiesController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @city = City.find(params[:id])
+    @city.destroy
+    redirect_to cities_path
+  end
+  
+
 
   private
   def city_params

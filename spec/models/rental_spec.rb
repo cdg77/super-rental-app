@@ -5,4 +5,5 @@ describe Rental do
   it { should validate_presence_of :type }
   it { should validate_presence_of :image }
   it { should validate_presence_of :bedrooms }
+  it { should belong_to :city }
 end

@@ -4,4 +4,5 @@ describe City do
   it { should validate_presence_of :name }
   it { should validate_presence_of :state }
   it { should validate_presence_of :country }
+  it { should have_many :rentals }
 end
