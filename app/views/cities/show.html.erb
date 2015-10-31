@@ -1,16 +1,27 @@
-<div class="jumbotron">
-  <h2>List of Available Rentals for: </h2>
+<div class="jumbotron text-center">
+  <h2 class="">List of Available Rentals for: </h2>
   <h4><%= @city.name %>, <%= @city.state %> | <%= @city.country %></h4>
 </div>
 
 
+<% if @city.rentals.any? %>
+  <h4>Available now to view: </h4>
+  <ul>
+    <% @city.rentals.each do |rental| %>
+      <li>
+        <%= rental.owner %>
+        <%= rental.type %>
+        <%= rental.image %>
+        <%= rental.bedrooms %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h4>list of available rentals coming soon... !</h4>
+<% end %>
+  <p><%= link_to "Add a Rental", new_city_rental_path(@city) %></p>
 
-<p>
-  list of available rentals coming soon...
-</p>
- <br>
-
-
+ <br><hr>
 <p><%= link_to "Return to list of cities", cities_path %></p>
 <p><%= link_to "Edit", edit_city_path(@city) %></p>
 <p><%= link_to "Delete", city_path(@city),
