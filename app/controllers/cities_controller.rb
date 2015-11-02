@@ -4,15 +4,16 @@ class CitiesController < ApplicationController
     render :index
   end
 
-  def show
-    @city = City.find(params[:id])
-    @rental = @city.rentals.new
-    render :show
-  end
-
   def new
     @city = City.new
     render :new
+  end
+
+  def show
+    @city = City.find(params[:id])
+    @rental = @city.rentals.new
+
+    render :show
   end
 
   def create
