@@ -26,6 +26,6 @@ class RentalsController < ApplicationController
 
   private
   def rental_params
-    params.require(:rental).permit(:owner, :type, :image, :bedrooms)
+    params.require(:rental).permit(:owner, :kind, :image, :bedrooms)
   end
 end
