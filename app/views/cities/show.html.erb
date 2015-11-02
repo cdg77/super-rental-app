@@ -9,11 +9,14 @@
   <ul>
     <% @city.rentals.each do |rental| %>
       <li>
-        <%= rental.owner %>
-        <%= rental.kind %>
-        <%= rental.image %>
+        <%= rental.owner %><br>
+        <%= rental.kind %><br>
+        <%= image_tag rental.image %><br>
         <%= rental.bedrooms %>
       </li>
+      <p><%= link_to "Delete a Rental", city_rental_path(@city, rental),
+                                        :data => {:confirm => "You sure you want to delete this?",
+                                                  :method => "delete"}%></p>
     <% end %>
   </ul>
 <% else %>

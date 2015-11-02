@@ -24,6 +24,14 @@ class RentalsController < ApplicationController
       redirect_to city_path
   end
 
+  def destroy
+    @city = City.find(params[:city_id])
+    @rental = Rental.find(params[:id])
+    @rental.destroy
+    redirect_to city_path
+  end
+
+
   private
   def rental_params
     params.require(:rental).permit(:owner, :kind, :image, :bedrooms)

@@ -11,7 +11,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
-    @rental = @city.rentals.new
+    # @rental = @city.rentals.new
 
     render :show
   end
