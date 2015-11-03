@@ -1,6 +1,6 @@
 <%= render 'layouts/errors', :object => @city %>
 <div class="container">
-  <%= form_for @city do |f| %>
+  <%= form_for @city, remote: true do |f| %>
     <div class="form-group well">
       <div class="form-inline">
         <%= f.label :name %>

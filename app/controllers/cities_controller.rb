@@ -20,7 +20,10 @@ class CitiesController < ApplicationController
     @city = City.new(city_params)
     if @city.save
       flash[:notice] = 'Success! State Added!'
-      redirect_to  cities_path
+      repsond_to do |format|
+        format.html { redirect_to  cities_path }
+        format.js
+      end
     else
       flash[:alert] = 'Oops... Something went wrong!'
       render :new
