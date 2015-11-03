@@ -7,27 +7,16 @@
 <% if @city.rentals.any? %>
   <h4>Available now to view: </h4>
   <ul>
-    <% @city.rentals.each do |rental| %>
-      <li>
-        <%= rental.owner %><br>
-        <%= rental.kind %><br>
-        <%= image_tag rental.image %><br>
-        <%= rental.bedrooms %>
-
-      <p><%= link_to "Delete this Rental", city_rental_path(@city, rental),
-                                        :data => {:confirm => "You sure you want to delete this?",
-                                                  :method => "delete"}%> |</p>
-
-      <p><%= link_to "Edit", edit_city_rental_path(@city, rental) %> |</p>
-      </li>
-      <hr>
-
-    <% end %>
+    <div id="rentals_container" class='well-sm'>
+      <% @city.rentals.each do |rental| %>
+        <%= render 'rentals/rental', rental: rental %>
+      <% end %>
+    </div>
   </ul>
 <% else %>
   <h4>list of available rentals coming soon... !</h4>
 <% end %>
-  <p><%= link_to " | Add a Rental", new_city_rental_path(@city) %></p>
+  <p><%= link_to " | Add a Rental", new_city_rental_path(@city), id:'new_rental_link', remote: true %></p>
 
  <br><hr>
 <p><%= link_to "Return to list of cities", cities_path %></p>

@@ -11,7 +11,11 @@ class RentalsController < ApplicationController
     if @rental.save
       @city.rentals.push(@rental)
       flash[:notice] = "Success! Rental Created!"
-      redirect_to city_path(@city)
+      respond_to do |format|
+        format.html { redirect_to city_path(@city) }
+        format.js
+      end
+
     else
       flash[:alert] = 'Oops... Somethings wrong!'
       render :new
@@ -45,8 +49,9 @@ class RentalsController < ApplicationController
   def destroy
     @city = City.find(params[:city_id])
     @rental = Rental.find(params[:id])
+    binding.pry
     @rental.destroy
-    redirect_to city_path
+    redirect_to city_path(@city)
   end
 
 

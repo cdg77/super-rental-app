@@ -1,0 +1,13 @@
+<li>
+  <%= rental.owner %><br>
+  <%= rental.kind %><br>
+  <%= image_tag rental.image %><br>
+  <%= rental.bedrooms %>
+
+<p><%= link_to "Delete this Rental", city_rental_path(@city, rental),
+                                  :data => {:confirm => "You sure you want to delete this?",
+                                            :method => "delete"}%> |</p>
+
+<p><%= link_to "Edit", edit_city_rental_path(@city, rental) %> |</p>
+</li>
+<hr>
