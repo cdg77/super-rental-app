@@ -24,6 +24,24 @@ class RentalsController < ApplicationController
       redirect_to city_path
   end
 
+  def edit
+    @city = City.find(params[:city_id])
+    @rental = Rental.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @city = City.find(params[:city_id])
+    @rental = Rental.find(params[:id])
+    if @rental.update(rental_params)
+      flash[:notice] = 'Rental Uddated!'
+      redirect_to city_path(@city)
+    else
+      flash[:alert] = 'Oops... Something went wrong, the rental was not updated!'
+      render :edit
+    end
+  end
+
   def destroy
     @city = City.find(params[:city_id])
     @rental = Rental.find(params[:id])

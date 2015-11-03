@@ -13,10 +13,11 @@
         <%= rental.kind %><br>
         <%= image_tag rental.image %><br>
         <%= rental.bedrooms %>
-      </li>
       <p><%= link_to "Delete a Rental", city_rental_path(@city, rental),
                                         :data => {:confirm => "You sure you want to delete this?",
-                                                  :method => "delete"}%></p>
+                                                  :method => "delete"}%> |</p>
+        <%= link_to "Edit", edit_city_rental_path(@city, rental) %> |
+      </li>
     <% end %>
   </ul>
 <% else %>
